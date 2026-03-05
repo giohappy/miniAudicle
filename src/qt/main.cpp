@@ -32,7 +32,6 @@ U.S.A.
 #include <QtWidgets/QStyleFactory>
 #include <iostream>
 #include <string>
-using namespace std;
 
 #include "mAMainWindow.h"
 #include "mAPreferencesWindow.h"
@@ -56,9 +55,9 @@ int main(int argc, char *argv[])
     if( app.arguments().length() >= 2 && QFileInfo(app.arguments()[1]).exists() )
     {
         // print
-        cerr << "[miniAudicle]: attempting to open file '"
-             << app.arguments()[1].toUtf8().constData()
-             << "' on remote..." << endl;
+        std::cerr << "[miniAudicle]: attempting to open file '"
+                  << app.arguments()[1].toUtf8().constData()
+                  << "' on remote..." << std::endl;
         // open on remote
         if( mASocketManager::openFileOnRemote(app.arguments()[1]) )
             return 0;
